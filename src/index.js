@@ -6,11 +6,9 @@ fetch("https://bravenewcoin.p.rapidapi.com/asset/f1ff77b6-3ab4-4719-9ded-2fc7e71
 	}
 })
 .then(response => response.json())
-.then(cryptos => {renderBTC(cryptos)
+.then(cryptos => {example(cryptos)
 
-console.log("This is Cryptos", cryptos)
-
-
+//console.log("This is Cryptos", cryptos)
 
 })
 
@@ -26,30 +24,43 @@ console.log("This is Cryptos", cryptos)
 
 
 // }
-const cryptoDiv = document.getElementsByClassName("Crypto-Div")
 
-const renderBTC = (cryptos) => {
 
-    let objectKey = Object.keys(cryptos)
+
+const example = (cryptos)=> {
+
+for( crypto in cryptos){
+    renderBTC(crypto)
+}
+
+
+}
+
+
+const renderBTC = (crypto) => {
+    
+    const cryptoDiv = document.createElement("div")
+    cryptoDiv.className = "crypto-div"
+
+    //let objectKey = Object.keys(cryptos)
     let cryptoUl = document.createElement("ul")
     cryptoUl.className = "crypto-list"
     cryptoUl.innerHTML = `
 
-    <li>${cryptos.name}</li>
+    <li>${crypto.name}</li>
     
     `
 
-    //cryptoDiv.append(cryptoUl)
+    cryptoDiv.append(cryptoUl)
 
 
-    console.log("objectKey", objectKey)
-    console.log("cryptoDiv", cryptoDiv)
+    console.log("crypto", crypto)
     console.log("CryptoUl", cryptoUl)
 
     
 
 }
-
+//renderBTC();
 
 
 
