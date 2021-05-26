@@ -6,11 +6,23 @@ fetch("https://bravenewcoin.p.rapidapi.com/asset?type=CRYPTO&status=ACTIVE", {
 	}
 })
 .then(response => response.json())
-.then(cryptos => renderCryptos(cryptos))
+.then(cryptos => {renderCryptos(cryptos.content)
+
+console.log("This is Cryptos", cryptos.content)
+
+
+
+})
+
 
 const renderCryptos = (cryptos) =>{
 
-    for( let crypto of cryptos)
+    for( let crypto of cryptos){
+
+        //renderCrypto(crypto)
+
+        console.log("this is crypto", crypto)
+    }
 
 
 }
