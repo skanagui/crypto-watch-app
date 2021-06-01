@@ -8,39 +8,66 @@ fetch("https://bravenewcoin.p.rapidapi.com/asset?type=CRYPTO&status=ACTIVE", {
 .then(response => response.json())
 .then(cryptos => renderCryptos(cryptos.content))
 
-
-
 const renderCryptos = (cryptos)=> {
 
     cryptos.forEach((crypto)=> 
-    //console.log("34 crypto",crypto)
         renderCrypto(crypto)
     )
  };
 
-
 const renderCrypto = (crypto) => {
     
-
+// console.log(crypto)
     let cryptoUl = document.querySelector("ul")
     
-    console.log("crypto name", crypto.name)
-
+    
     cryptoLi = document.createElement("li")
+    cryptoLi.className = 'crypto-li'
+    
     
     cryptoLi.innerHTML = `
-
-    ${crypto.name}
-
-    `
-
-
-    cryptoUl.append(cryptoLi)
-
-
-   
-
     
+    ${crypto.name}
+    
+    `
+    
+    cryptoUl.append(cryptoLi)
+    //console.log("cryptUl:", cryptoUl)
+
+    cryptoLi.addEventListener("click", (e)=>{
+
+        console.log("click", e.target)
+
+        if (e.target.matches(".crypto-li")){
+            // alert("clicked")
+            let infoUl = document.createElement('ul')
+
+            let infoLi = document.createElement('li')
+            infoLi.innerHTML = 
+            `${crypto.symbol}
+            ${crypto.status}
+            ${crypto.type}
+            ${crypto.url}
+            ${crypto.id}
+            `
+            console.log("line 53",infoLi)
+           
+            // let statusP = document.createElement('p')
+            // let typeP = document.createElement('p')
+            // let urlP = document.createElement('p')
+            // let idP = document.createElement('p')
+
+            infoUl.append(infoLi)
+            cryptoUl.append(infoUl)
+
+
+
+            
+        }
+        
+
+
+    })
 
 }
 
