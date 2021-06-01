@@ -40,25 +40,39 @@ const renderCrypto = (crypto) => {
 
         if (e.target.matches(".crypto-li")){
             // alert("clicked")
-            let infoUl = document.createElement('ul')
-
-            let infoLi = document.createElement('li')
-            infoLi.innerHTML = 
-            `${crypto.symbol}
-            ${crypto.status}
-            ${crypto.type}
-            ${crypto.url}
-            ${crypto.id}
+            let infoNav = document.createElement('nav')
+            infoNav.className = "info-nav"
+            infoNav.innerHTML = `
+            
+            <h3>Crypto Info</h3>
+            <ul id = "crypto-info-list">
+            <li>${crypto.symbol}</li>
+            <li>${crypto.status}</li>
+            <li>${crypto.type}</li>
+            <li>${crypto.url}</li>
+            <li>${crypto.id}</li>
+            
+            </ul>
+          
             `
-            console.log("line 53",infoLi)
+
+            //let infoLi = document.createElement('li')
+            // infoLi.innerHTML = 
+            // `${}
+            // ${}
+            // ${}
+            // ${}
+            // ${}
+            // `
+            console.log("line 67",infoNav)
            
             // let statusP = document.createElement('p')
             // let typeP = document.createElement('p')
             // let urlP = document.createElement('p')
             // let idP = document.createElement('p')
 
-            infoUl.append(infoLi)
-            cryptoUl.append(infoUl)
+            
+            cryptoUl.append(infoNav)
 
 
 
