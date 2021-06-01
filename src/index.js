@@ -6,51 +6,22 @@ fetch("https://bravenewcoin.p.rapidapi.com/asset?type=CRYPTO&status=ACTIVE", {
 	}
 })
 .then(response => response.json())
-.then(cryptos => {example(cryptos.content)
-
-//console.log("This is Cryptos  content", cryptos.content)
-
-})
-
-
-// const renderCryptos = (cryptos) =>{
-
-//     for( let crypto of cryptos){
-
-//         renderCrypto(crypto)
-
-//         console.log("this is crypto", crypto)
-//     }
-
-
-// }
+.then(cryptos => renderCryptos(cryptos.content))
 
 
 
-const example = (cryptos)=> {
+const renderCryptos = (cryptos)=> {
 
     cryptos.forEach((crypto)=> 
     //console.log("34 crypto",crypto)
-        renderBTC(crypto)
+        renderCrypto(crypto)
     )
-
-// for( crypto of cryptos){
-    
-//     console.log("cryptos", cryptos )
-//     //console.log("crypto", crypto)
-
-// }
-
-
  };
 
 
-const renderBTC = (crypto) => {
+const renderCrypto = (crypto) => {
     
-    //const cryptoDiv = document.createElement("div")
-    //cryptoDiv.className = "crypto-div"
 
-    //let objectKey = Object.keys(cryptos)
     let cryptoUl = document.querySelector("ul")
     
     console.log("crypto name", crypto.name)
@@ -72,7 +43,7 @@ const renderBTC = (crypto) => {
     
 
 }
-//renderBTC();
+
 
 
 
