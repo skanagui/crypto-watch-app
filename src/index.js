@@ -13,79 +13,54 @@ const renderCryptos = (cryptos)=> {
     cryptos.forEach((crypto)=> 
         renderCrypto(crypto)
     )
- };
+};
+
+let cryptoUl = document.querySelector("ul")
+let cryptoNav = document.querySelector("nav")
 
 const renderCrypto = (crypto) => {
     
-// console.log(crypto)
-    let cryptoUl = document.querySelector("ul")
-    
-    
-    cryptoLi = document.createElement("li")
+    let cryptoLi = document.createElement("li")
     cryptoLi.className = 'crypto-li'
     
-    
     cryptoLi.innerHTML = `
-    
     ${crypto.name}
-    
     `
     
     cryptoUl.append(cryptoLi)
+    cryptoNav.append(cryptoUl)
     //console.log("cryptUl:", cryptoUl)
 
-    cryptoLi.addEventListener("click", (e)=>{
+    cryptoNav.addEventListener("click", (e)=>{
 
         console.log("click", e.target)
 
-        if (e.target.matches(".crypto-li")){
+        if (e.target.matches("li.crypto-li")){
             // alert("clicked")
-            let infoNav = document.createElement('nav')
-            infoNav.className = "info-nav"
-            infoNav.innerHTML = `
+            let infoDiv = document.querySelector('div')
+            // console.log("line 43",infoDiv)
+        
+            infoDiv.innerHTML = `
             
             <h3>Crypto Info</h3>
             <ul id = "crypto-info-list">
-            <li>${crypto.symbol}</li>
-            <li>${crypto.status}</li>
-            <li>${crypto.type}</li>
-            <li>${crypto.url}</li>
-            <li>${crypto.id}</li>
-            
+                <li>${crypto.symbol}</li>
+                <li>${crypto.status}</li>
+                <li>${crypto.type}</li>
+                <li>${crypto.url}</li>
+                <li>${crypto.id}</li>
+                
             </ul>
-          
             `
-
-            //let infoLi = document.createElement('li')
-            // infoLi.innerHTML = 
-            // `${}
-            // ${}
-            // ${}
-            // ${}
-            // ${}
-            // `
-            console.log("line 67",infoNav)
-           
-            // let statusP = document.createElement('p')
-            // let typeP = document.createElement('p')
-            // let urlP = document.createElement('p')
-            // let idP = document.createElement('p')
-
-            
-            cryptoUl.append(infoNav)
-
-
-
+            console.log("line 67",infoDiv)
+    
+            cryptoUl.append(infoDiv)
             
         }
-        
-
-
+   
     })
 
+    
+
 }
-
-
-
-
 
